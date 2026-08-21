@@ -13,7 +13,7 @@ from docx.shared import Inches, Pt, RGBColor
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "docs" / "GPU显存约束调度_通用385版.docx"
+OUT = ROOT / "docs" / "GPU显存约束调度_算法说明.docx"
 SOURCE = ROOT / "src" / "Solution.cpp"
 
 NAVY = "17365D"
@@ -396,7 +396,7 @@ def configure_document(doc: Document) -> None:
     header = sec.header
     hp = header.paragraphs[0]
     hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    hr = hp.add_run("GPU 显存约束调度  ·  通用 385 版")
+    hr = hp.add_run("GPU 显存约束调度")
     set_run_font(hr, 8.2, bold=True, color=GRAY_TEXT)
     add_bottom_border(hp, GRAY_MID, 6)
 
@@ -405,8 +405,8 @@ def configure_document(doc: Document) -> None:
     add_page_number(fp)
 
     props = doc.core_properties
-    props.title = "GPU 显存约束调度：通用 385 版"
-    props.subject = "华为算法挑战赛赛后开源说明"
+    props.title = "GPU 显存约束调度"
+    props.subject = "算法与实现说明"
     props.author = "Competition solution authors"
     props.keywords = "GPU scheduling, memory constraint, quantization, local search"
 
@@ -433,14 +433,8 @@ def build() -> None:
 
     subtitle = doc.add_paragraph()
     subtitle.paragraph_format.space_after = Pt(24)
-    r = subtitle.add_run("源自 385.03 代码谱系的通用量化实现")
+    r = subtitle.add_run("量化实现与工程说明")
     set_run_font(r, 18, bold=False, color=BLUE_DARK)
-
-    add_callout(
-        doc,
-        "版本定位",
-        "本实现由比赛期间约 385 分的代码谱系整理而来。公开源码采用固定、透明的候选集合；当前派生版未回到原赛场重新计分。",
-    )
 
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(26)
@@ -454,7 +448,7 @@ def build() -> None:
 
     add_body(
         doc,
-        "本文重点：事件驱动模拟、优先级网格、regret、局部搜索、无损 int16 预筛和残余重优化。所有实例使用同一候选集合；385 只表示原始代码谱系的历史量级。",
+        "本文重点：事件驱动模拟、优先级网格、regret、局部搜索、无损 int16 预筛和残余重优化。所有实例使用同一候选集合。",
     )
 
     doc.add_page_break()
@@ -483,7 +477,7 @@ def build() -> None:
     h2(doc, "代码版本")
     add_body(
         doc,
-        "公开源码是从 385.03 历史代码谱系整理出的通用派生版，当前版本未重新计分。",
+        "以下校验信息对应当前仓库中的公开源码。",
     )
     add_code(
         doc,
@@ -515,7 +509,7 @@ def build() -> None:
     add_formula(
         doc,
         "score = max(1 + (Vbase − Vans) / ΣᵢLoutᵢ, 0)",
-        "单测相对分数；385.03 是原始分支的历史记录，当前派生版未单独评测",
+        "单测相对分数",
     )
 
     h2(doc, "1.2 约束规模带来的直接结论")
@@ -877,7 +871,7 @@ def build() -> None:
     h1(doc, "10  版本边界与可继续改进的方向")
     add_body(
         doc,
-        "这份公开稿来自约 385 分的代码谱系，整理目标是给出一套完整、可读、便于迁移的方法。候选集合和搜索规则在源码中固定给出；385 只表示历史量级，当前派生版没有直接评测成绩。",
+        "下面列出当前实现的边界，以及在不改变整体框架时可以继续改进的方向。",
     )
 
     h2(doc, "10.1 这份实现的已知局限")
@@ -929,8 +923,8 @@ def build() -> None:
             ("README.md", "项目边界、编译和复现说明"),
             ("LICENSE", "MIT License"),
             (".gitignore", "本地编译与文档预览产物忽略规则"),
-            ("src/Solution.cpp", "通用化派生版单文件源码"),
-            ("docs/GPU显存约束调度_通用385版.docx", "本文档"),
+            ("src/Solution.cpp", "单文件源码"),
+            ("docs/GPU显存约束调度_算法说明.docx", "本文档"),
             ("tools/build_doc.py", "本文档的可重复生成脚本"),
             ("SHA256SUMS.txt", "发布文件校验清单"),
         ],
@@ -940,7 +934,7 @@ def build() -> None:
     h2(doc, "版本说明")
     add_body(
         doc,
-        "历史成绩只用于说明代码谱系。发布包还保留本文档的生成脚本与 SHA-256 校验清单，便于复核和继续维护。",
+        "发布包保留本文档的生成脚本与 SHA-256 校验清单，便于复核和继续维护。",
     )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
