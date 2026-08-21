@@ -1,0 +1,6 @@
+solution
+*.o
+*.out
+.DS_Store
+.render/
+docs/_rendered*/
