@@ -59,3 +59,10 @@ python3 tools/generate_figures.py
 ## 许可证
 
 代码和文档采用 MIT License，见 [LICENSE](LICENSE)。
+
+## 系列题解
+
+[返回个人参赛题解总目录](https://github.com/XJU-ICTHUB/Huawei-Algorithm-Challenge)
+
+- 第38期：本仓库MemWeave，[论坛题解](https://bbs.huaweicloud.com/forum/thread-02127222761354471267-1-1.html)。
+- 第39期：[SlotWeave](https://github.com/XJU-ICTHUB/SlotWeave)，固定时隙均衡算法；[完整题解](https://github.com/XJU-ICTHUB/SlotWeave/blob/main/docs/solution.md)。
