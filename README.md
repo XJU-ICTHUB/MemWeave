@@ -65,4 +65,4 @@ python3 tools/generate_figures.py
 [返回个人参赛题解总目录](https://github.com/XJU-ICTHUB/Huawei-Algorithm-Challenge)
 
 - 第38期：本仓库MemWeave，[论坛题解](https://bbs.huaweicloud.com/forum/thread-02127222761354471267-1-1.html)。
-- 第39期：[SlotWeave](https://github.com/XJU-ICTHUB/SlotWeave)，固定时隙均衡算法；[完整题解](https://github.com/XJU-ICTHUB/SlotWeave/blob/main/docs/solution.md)。
+- 第39期：[SlotWeave](https://github.com/XJU-ICTHUB/SlotWeave)，固定时隙均衡算法；[算法说明](https://github.com/XJU-ICTHUB/SlotWeave/blob/main/docs/solution.md)、[论坛题解](https://bbs.huaweicloud.com/forum/thread-02127227933062879438-1-1.html)。
